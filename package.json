@@ -1,0 +1,27 @@
+{
+  "name": "custom-discord-rich-presence",
+  "packageManager": "yarn@3.1.1",
+  "author": "CocoaCaa (https://twitter.com/cocoa_caa)",
+  "license": "MIT",
+  "version": "1.0.0",
+  "bin": "./bin/index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build:bin": "tsc",
+    "build:pkg": "pkg -t node16-win --out-path ./dist ."
+  },
+  "devDependencies": {
+    "@types/discord-rpc": "^4.0.0",
+    "@types/js-yaml": "^4.0.5",
+    "@types/node": "^17.0.8",
+    "pkg": "^5.5.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "discord-rpc": "^4.0.1",
+    "joi": "^17.5.0",
+    "js-yaml": "^4.1.0"
+  },
+  "private": true
+}
