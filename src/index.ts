@@ -1,11 +1,13 @@
 import RPC from 'discord-rpc';
 import { Config } from './config';
+import { askQuestion } from './utils';
 
 async function start() {
   const config = new Config();
   await config.load();
   if (config.values?.clientId.startsWith('<')) {
     console.log('Please setting up config.yml clientId, you could get the value from https://discord.com/developers/applications');
+    await askQuestion('Press any key to continue...');
     return;
   }
 
@@ -37,7 +39,8 @@ async function start() {
   await client.login({ clientId: config.values!.clientId });
 }
 
-start().catch((err) => {
+start().catch(async (err) => {
   console.error(err.message ?? err);
+  await askQuestion('Press any key to continue...');
   process.exit(1);
 });
