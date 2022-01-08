@@ -31,7 +31,7 @@ async function start() {
   }
 
   client.on('ready', () => {
-    setInterval(() => updateRichPresence, 3000);
+    setInterval(updateRichPresence, 3000);
     updateRichPresence();
     console.log('Start custom rich presence!');
     console.log('By CocoaCaa');
