@@ -17,8 +17,8 @@ async function start() {
     client.setActivity({
       details: config.values?.details,
       state: config.values?.state,
-      startTimestamp: config.values?.startTimestamp,
-      endTimestamp: config.values?.endTimestamp,
+      startTimestamp: 1, // Need hardcoded for overriding other application
+      endTimestamp: new Date().getTime() + 1, // Need hardcoded for overriding other application
       largeImageKey: config.values?.largeImageKey,
       largeImageText: config.values?.largeImageText,
       smallImageKey: config.values?.smallImageKey,
@@ -26,12 +26,11 @@ async function start() {
       partySize: config.values?.partySize,
       partyMax: config.values?.partyMax,
       buttons: config.values?.buttons,
-      instance: true,
     });
   }
 
   client.on('ready', () => {
-    setInterval(updateRichPresence, 3000);
+    setInterval(() => updateRichPresence(), 2000);
     updateRichPresence();
     console.log('Start custom rich presence!');
     console.log('By CocoaCaa');
